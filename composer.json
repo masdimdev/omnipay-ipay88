@@ -1,0 +1,28 @@
+{
+    "name": "masdimdev/omnipay-ipay88",
+    "description": "iPay88 driver for Omnipay",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "league/omnipay": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omnipay\\Ipay88\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dimas",
+            "email": "me@masdim.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
