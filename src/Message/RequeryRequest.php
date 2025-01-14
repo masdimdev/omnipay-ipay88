@@ -23,7 +23,7 @@ class RequeryRequest extends AbstractRequest
         return [
             'MerchantCode' => $this->getMerchantCode(),
             'RefNo' => $this->getTransactionId(),
-            'Amount' => number_format($this->getAmount() / 100, 2, '.', ','),
+            'Amount' => $this->getAmount(),
         ];
     }
 
