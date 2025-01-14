@@ -13,6 +13,11 @@ class CompletePurchaseRequest extends AbstractRequest
     {
         $data = $this->httpRequest->request->all();
 
+        $status = (string)($data['Status'] ?? '');
+        if ($status !== '1') {
+            throw new Exception($data['ErrDesc'] ?? 'An error occurred.');
+        }
+
         $signature = $data['Signature'] ?? '';
         $generatedSignature = $this->generateSignature([
             $this->getMerchantKey(),
