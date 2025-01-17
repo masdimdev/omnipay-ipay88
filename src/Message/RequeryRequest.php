@@ -33,13 +33,13 @@ class RequeryRequest extends AbstractRequest
     public function sendData($data): ResponseInterface
     {
         $endpoint = 'https://payment.ipay88.com.my/epayment/enquiry.asp';
+        $queryString = http_build_query($data);
+        $url = $endpoint . '?' . $queryString;
 
         try {
-            $httpResponse = $this->httpClient->request('POST', $endpoint, [
-                'form_params' => $data,
-            ]);
+            $httpResponse = $this->httpClient->request('GET', $url);
 
-            $responseBody = (string) $httpResponse->getBody();
+            $responseBody = (string)$httpResponse->getBody();
 
             return $this->response = new RequeryResponse($this, $responseBody);
         } catch (RequestException $e) {
