@@ -8,6 +8,7 @@ use Omnipay\Ipay88\Message\PurchaseRequest;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\NotificationInterface;
 use Omnipay\Common\Message\RequestInterface;
+use Omnipay\Ipay88\Message\RequeryPaymentRequest;
 use Omnipay\Ipay88\Message\RequeryRequest;
 
 /**
@@ -74,5 +75,10 @@ class Gateway extends AbstractGateway
     public function requery(array $options = []): AbstractRequest
     {
         return $this->createRequest(RequeryRequest::class, $options);
+    }
+
+    public function requeryPayment(array $options = []): AbstractRequest
+    {
+        return $this->createRequest(RequeryPaymentRequest::class, $options);
     }
 }
