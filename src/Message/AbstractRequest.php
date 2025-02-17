@@ -26,6 +26,16 @@ abstract class AbstractRequest extends BaseAbstractRequest
         return $this->setParameter('merchantKey', $value);
     }
 
+    public function getPaymentId()
+    {
+        return $this->getParameter('paymentId');
+    }
+
+    public function setPaymentId($value): AbstractRequest
+    {
+        return $this->setParameter('paymentId', $value);
+    }
+
     public function getUserName()
     {
         return $this->getParameter('userName');
@@ -54,6 +64,16 @@ abstract class AbstractRequest extends BaseAbstractRequest
     public function setUserContact($value): AbstractRequest
     {
         return $this->setParameter('userContact', $value);
+    }
+
+    public function getRemark()
+    {
+        return $this->getParameter('remark');
+    }
+
+    public function setRemark($value): AbstractRequest
+    {
+        return $this->setParameter('remark', $value);
     }
 
     protected function generateSignature($signaturePayload): string
