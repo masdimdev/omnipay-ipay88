@@ -3,6 +3,7 @@
 namespace Omnipay\Ipay88;
 
 use Omnipay\Common\Message\AbstractRequest;
+use Omnipay\Ipay88\Enum\PaymentMethod;
 use Omnipay\Ipay88\Message\CompletePurchaseRequest;
 use Omnipay\Ipay88\Message\PurchaseRequest;
 use Omnipay\Common\AbstractGateway;
@@ -80,5 +81,10 @@ class Gateway extends AbstractGateway
     public function requeryPayment(array $options = []): AbstractRequest
     {
         return $this->createRequest(RequeryPaymentRequest::class, $options);
+    }
+
+    public function getPaymentIds(): array
+    {
+        return PaymentMethod::map();
     }
 }
