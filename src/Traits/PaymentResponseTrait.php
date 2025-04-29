@@ -10,16 +10,22 @@ trait PaymentResponseTrait
 {
     public function getPaymentIdEnum($paymentId): ?PaymentMethod
     {
+        $paymentId = empty($paymentId) ? null : $paymentId;
+
         return PaymentMethod::tryFrom($paymentId);
     }
 
     public function getErrorDescriptionEnum($errDesc): ?ErrorDescription
     {
+        $errDesc = empty($errDesc) ? null : $errDesc;
+
         return ErrorDescription::tryFromKey($errDesc);
     }
 
     public function getBankNameEnum($bankName): ?BankName
     {
+        $bankName = empty($bankName) ? null : $bankName;
+
         return BankName::tryFrom($bankName);
     }
 

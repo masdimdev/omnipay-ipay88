@@ -16,7 +16,9 @@ class RequeryPaymentResponse extends AbstractResponse
      */
     public function isSuccessful(): bool
     {
-        return (string)($this->data['Status'] ?? '') === '1';
+        $status = empty($this->data['Status']) ? '' : $this->data['Status'];
+
+        return (string)$status === '1';
     }
 
     /**
@@ -26,7 +28,7 @@ class RequeryPaymentResponse extends AbstractResponse
      */
     public function getTransactionId(): ?string
     {
-        return $this->data['RefNo'] ?? null;
+        return empty($this->data['RefNo']) ? null : $this->data['RefNo'];
     }
 
     /**
@@ -36,6 +38,6 @@ class RequeryPaymentResponse extends AbstractResponse
      */
     public function getTransactionReference(): ?string
     {
-        return $this->data['TransId'] ?? null;
+        return empty($this->data['TransId']) ? null : $this->data['TransId'];
     }
 }
